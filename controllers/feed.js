@@ -1,4 +1,4 @@
-exports.getPost = (req, res, next) => {
+exports.getPosts = (req, res, next) => {
   res.json({
     posts: [
       {
@@ -20,3 +20,20 @@ exports.getPost = (req, res, next) => {
     test: 'test'
   });
 };
+
+exports.createPosts = (req, res, next) => {
+  const title = req.body.title;
+  const description = req.body.description;
+
+  // ID to save in DB
+  const ID = 1234; 
+  res.json({
+    messages: 'Success operation',
+    post: {
+      id: ID,
+      title: title,
+      description: description
+    }
+  });
+};
+

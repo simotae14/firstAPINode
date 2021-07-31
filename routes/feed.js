@@ -3,7 +3,9 @@ const router = express.Router();
 
 const feedController = require('../controllers/feed');
 
-// define my endpoint
-router.get('/posts', feedController.getPost);
+// GET /feed/posts
+router.get('/posts', feedController.getPosts);
+// POST /feed/posts
+router.post('/posts', feedController.createPosts);
 
 module.exports = router;
