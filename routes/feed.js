@@ -3,9 +3,19 @@ const router = express.Router();
 
 const feedController = require('../controllers/feed');
 
-// GET /feed/posts
+// NO AUTH
+// GET ALL /feed/posts
 router.get('/posts', feedController.getPosts);
-// POST /feed/posts
+// GET /feed/post/:id
+// POST /feed/post
 router.post('/posts', feedController.createPosts);
+// PUT /feed/post/:id to update a post
+// DELETE /feed/post/:id
+// POST /feed/post/:id/like to add a like
+
+// POST /user/login
+// POST /user/register
+// GET /user/me profile user
+// PUT /user/me to update profile user verification permits
 
 module.exports = router;

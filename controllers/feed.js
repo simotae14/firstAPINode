@@ -4,17 +4,32 @@ exports.getPosts = (req, res, next) => {
       {
         id: 1,
         title: 'Titolo 1',
-        description: 'description'
+        description: 'description',
+        image: 'images/1.jpeg',
+        author: {
+          name: 'Simone'
+        },
+        creation_date: new Date()
       },
       {
         id: 2,
         title: 'Titolo 1',
-        description: 'description'
+        description: 'description',
+        image: 'images/1.jpeg',
+        author: {
+          name: 'Simone'
+        },
+        creation_date: new Date()
       },
       {
         id: 3,
         title: 'Titolo 1',
-        description: 'description'
+        description: 'description',
+        image: 'images/1.jpeg',
+        author: {
+          name: 'Simone'
+        },
+        creation_date: new Date()
       }
     ],
     test: 'test'
