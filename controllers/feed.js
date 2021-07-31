@@ -27,7 +27,7 @@ exports.createPosts = (req, res, next) => {
 
   // ID to save in DB
   const ID = 1234; 
-  res.json({
+  res.status(201).json({
     messages: 'Success operation',
     post: {
       id: ID,
