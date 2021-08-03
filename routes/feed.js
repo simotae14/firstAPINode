@@ -15,6 +15,9 @@ router.post('/post',
       .isLength({ min: 3 }).withMessage('Titolo maggiore di 3 caratteri')
       .isLowercase().withMessage('Titolo lowercase')
       .exists().withMessage('Titolo è richiesto'),
+    body('titleConfirmed')
+      .custom((value, {req}) => value === req.body.title)
+      .withMessage('Titolo non confermato'),
     body('description').trim().isLength({ min: 5 })
   ],
 feedController.createPosts);
