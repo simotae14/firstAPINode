@@ -1,5 +1,5 @@
 const express = require('express');
-const { body } = require('express-validator');
+const { body, query } = require('express-validator');
 const router = express.Router();
 
 const feedController = require('../controllers/feed');
@@ -18,7 +18,8 @@ router.post('/post',
     body('titleConfirmed')
       .custom((value, {req}) => value === req.body.title)
       .withMessage('Titolo non confermato'),
-    body('description').trim().isLength({ min: 5 })
+    body('description').trim().isLength({ min: 5 }),
+    query('max').custom((value, {req}) => value > 100).withMessage('query val > 100')
   ],
 feedController.createPosts);
 // PUT /feed/post/:id to update a post
