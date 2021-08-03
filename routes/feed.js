@@ -1,4 +1,5 @@
 const express = require('express');
+const { body } = require('express-validator/check');
 const router = express.Router();
 
 const feedController = require('../controllers/feed');
@@ -8,7 +9,12 @@ const feedController = require('../controllers/feed');
 router.get('/posts', feedController.getPosts);
 // GET /feed/post/:id
 // POST /feed/post
-router.post('/posts', feedController.createPosts);
+router.post('/post',
+  [
+    body('title').trim().isLength({ min: 3 }).exists(),
+    body('description').trim().isLength({ min: 5 })
+  ],
+feedController.createPosts);
 // PUT /feed/post/:id to update a post
 // DELETE /feed/post/:id
 // POST /feed/post/:id/like to add a like
