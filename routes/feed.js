@@ -13,13 +13,8 @@ router.post('/post',
   [
     body('title').trim()
       .isLength({ min: 3 }).withMessage('Titolo maggiore di 3 caratteri')
-      .isLowercase().withMessage('Titolo lowercase')
       .exists().withMessage('Titolo è richiesto'),
-    body('titleConfirmed')
-      .custom((value, {req}) => value === req.body.title)
-      .withMessage('Titolo non confermato'),
-    body('description').trim().isLength({ min: 5 }),
-    query('max').custom((value, {req}) => value > 100).withMessage('query val > 100')
+    body('description').trim().isLength({ min: 5 }).withMessage('Description maggiore di 5 caratteri')
   ],
 feedController.createPosts);
 // PUT /feed/post/:id to update a post
